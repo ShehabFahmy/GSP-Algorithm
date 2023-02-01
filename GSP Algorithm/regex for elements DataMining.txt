@@ -1,0 +1,8 @@
+string s = "{add}{zxa}";
+    regex r(R"(\{([^{}]*)})"); // [^{}<>]+ for data between braces 
+				// remove plus for 1 element
+    smatch m;
+    while (regex_search(s, m, r)) {
+        cout << m[0] << endl;
+        s = m.suffix().str();
+    }
